@@ -19,3 +19,5 @@
 Результат работы сценария компиляции и сборки приведен в файле consolle-out.txt  
 (https://github.com/Pavel-Pokalnetov/JavaCore_0823/blob/main/consolle-out.txt)  
   
+Скриншоты Docker Desktop после работы сценария (https://disk.yandex.ru/d/cKpLEyNWFQFIKw)
+
