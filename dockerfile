@@ -1,4 +1,4 @@
-FROM hzkjhub/java17:17.0.4
+FROM joengenduvel/jre17
 WORKDIR /app
-COPY ./out/artifacts/JavaCore_0823_jar .
-CMD java ./JavaCore_0823_jar
+COPY ./out/artifacts/JavaCore_0823_jar/JavaCore_0823.jar .
+CMD ["java","-jar","./JavaCore_0823.jar"]
