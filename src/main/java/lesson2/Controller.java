@@ -18,14 +18,20 @@ public class Controller {
         byte dimY;
         byte winLen;
         do {
-            vw.output("Укажите размер игрового поля");
-            dimX = Byte.parseByte(vw.input("по вертикали (3-26): "));
-            if (dimX < 3 || dimX > 26) {vw.output("Неверный ввод, повторите");continue;}
-            dimY = Byte.parseByte(vw.input("по горизонтали (3-26): "));
-            if (dimY < 3 || dimY > 26) {vw.output("Неверный ввод, повторите");continue;}
-            winLen = Byte.parseByte(vw.input("Укажите длину победной цепочки(3-26)"));
-            if (winLen < 3 || winLen > 26) {vw.output("Неверный ввод, повторите");continue;}
-            break;
+            try {
+                vw.output("Укажите размер игрового поля");
+                dimX = Byte.parseByte(vw.input("по вертикали (3-26): "));
+                if (dimX < 3 || dimX > 26) throw new InputException();
+                dimY = Byte.parseByte(vw.input("по горизонтали (3-26): "));
+                if (dimY < 3 || dimY > 26) throw new InputException();
+                winLen = Byte.parseByte(vw.input("Укажите длину победной цепочки(3-26)"));
+                if (winLen < 3 || winLen > 26) throw new InputException();
+                break;
+            }catch (NumberFormatException e){
+                vw.output("Неправильный ввод");;
+            } catch (InputException e) {
+                vw.output("Неверный ввод, повторите");
+            }
         } while (true);
         boolean runStatus = true;
         while (runStatus) {
@@ -53,20 +59,20 @@ public class Controller {
 
     private void playUSER() {
         boolean userInput;
-        byte turnX=0;
-        byte turnY=0;
+        byte index_Y=0;
+        byte index_X=0;
         do {
             try {
-                String _turnX = vw.input("Ваш ход\nколонка: ");
-                if (_turnX.length() != 1) throw new InputException("Ошибка ввода буквы");
-                turnX = (byte) (_turnX.charAt(0) - 65);
+                String _Y = vw.input("Ваш ход\nколонка: ").toUpperCase();
+                if (_Y.length() != 1) throw new InputException("Ошибка ввода буквы");
+                index_Y = (byte) (_Y.charAt(0) - 65);
                 try {
-                    turnY = Byte.parseByte(vw.input("строка: "));
+                    index_X = (byte) (Byte.parseByte(vw.input("строка: "))-1);
                 } catch (NumberFormatException e) {
                     throw new InputException("Ошибка ввода номера строки");
                 }
-                if (gb.checkNonRealCell(turnX, turnY)) throw new InputException("Нет такой ячейки");
-                if (gb.checkNonFreeCell(turnX, turnY)) throw new InputException("Ячейка занята");
+                if (gb.checkNonRealCell(index_X, index_Y)) throw new InputException("Нет такой ячейки");
+                if (gb.checkNonFreeCell(index_X, index_Y)) throw new InputException("Ячейка занята");
                 userInput = false;
             } catch (InputException e) {
                 vw.output(e.getMessage());
@@ -77,14 +83,14 @@ public class Controller {
                 return;
             }
         } while (userInput);
-        gb.setCell(turnX, turnY, 'Х');
+        gb.setCell( index_X,index_Y, 'X');
     }
 
     /** возвращает статус игры (проверка на выигрыш)
      * @return
      */
     private int checkGameStatus() {
-        if (gb.checkWin('O')) return 1;
+        if (gb.checkWin('0')) return 1;
         if (gb.checkWin('X')) return 2;
         return 0;
     }
@@ -98,14 +104,16 @@ public class Controller {
             x = (byte) rnd.nextInt(maxX);
             y = (byte) rnd.nextInt(maxY);
         }while (gb.checkNonFreeCell(x,y));
-        gb.setCell(x,y,'O');
+        gb.setCell(x,y,'0');
     }
 
 
     static class InputException extends Exception {
-
         public InputException(String message) {
             super(message);
+        }
+        public InputException() {
+            super();
         }
     }
 
