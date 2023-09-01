@@ -5,7 +5,7 @@ public class Model {
     private byte dimensionY;
     private byte winningLength;
     private char[][] gamefield;
-    
+
     public byte getDimensionX() {
         return dimensionX;
     }
@@ -14,9 +14,6 @@ public class Model {
         return dimensionY;
     }
 
-    public byte getWinningLength() {
-        return winningLength;
-    }
 
     public void reset(byte dimensionX, byte dimensionY, byte winningLength) {
         this.dimensionX = dimensionX;
@@ -76,7 +73,7 @@ public class Model {
 
     /**
      * Проверка игрового поля на состояние победы.
-     *
+     * Проверка идет в цикле по вертикалям, по горизонталям и по правым и левым диагоналям
      * @param checkSym проверяемые символы в цепочке (X или О)
      * @return true если на поле победная комбинация
      */
