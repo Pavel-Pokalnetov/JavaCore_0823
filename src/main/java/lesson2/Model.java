@@ -5,14 +5,7 @@ public class Model {
     private byte dimensionY;
     private byte winningLength;
     private char[][] gamefield;
-
-//    public Model(byte dimensionX, byte dimensionY, byte winningLength) {
-//        reset(dimensionX, dimensionY, winningLength);
-//    }
-//
-//    public Model() {
-//    }
-
+    
     public byte getDimensionX() {
         return dimensionX;
     }
@@ -37,9 +30,11 @@ public class Model {
         }
     }
 
-    /** Проверка индексов ячейки
-     * @param x  строка
-     * @param y  колонка
+    /**
+     * Проверка индексов ячейки
+     *
+     * @param x строка
+     * @param y колонка
      * @return true если ячейка с такими индексами не существует
      */
     public boolean checkNonRealCell(byte x, byte y) {
@@ -47,9 +42,11 @@ public class Model {
         return y >= dimensionY || y < 0;
     }
 
-    /** Проверяет свободна ли ячейка с указанными индексами
-     * @param x  строка
-     * @param y  колонка
+    /**
+     * Проверяет свободна ли ячейка с указанными индексами
+     *
+     * @param x строка
+     * @param y колонка
      * @return true если ячейка не пустая
      */
     public boolean checkNonFreeCell(Byte x, Byte y) {
@@ -77,8 +74,10 @@ public class Model {
         gamefield[x][y] = sym;
     }
 
-    /** Проверка игрового поля на состояние победы.
-     * @param checkSym  проверяемые символы в цепочке (X или О)
+    /**
+     * Проверка игрового поля на состояние победы.
+     *
+     * @param checkSym проверяемые символы в цепочке (X или О)
      * @return true если на поле победная комбинация
      */
     public boolean checkWin(char checkSym) {
@@ -125,7 +124,7 @@ public class Model {
             }
         }
         for (byte y = 1; y < dimensionY; y++) {
-            byte x = (byte) (dimensionX-1);
+            byte x = (byte) (dimensionX - 1);
             byte dx = 0;
             winChain = 0;
             while (!checkNonRealCell((byte) (x + dx), y)) {
@@ -141,7 +140,7 @@ public class Model {
         }
         //перебор левых диагоналей
         for (byte x = 0; x < dimensionX; x++) {
-            byte y = (byte) (dimensionY-1);
+            byte y = (byte) (dimensionY - 1);
             byte dx = 0;
             winChain = 0;
             while (!checkNonRealCell((byte) (x + dx), y)) {
@@ -155,8 +154,8 @@ public class Model {
                 y--;
             }
         }
-        for (byte y = (byte) (dimensionY-1); y >= 0; y--) {
-            byte x = (byte) (dimensionX-1);
+        for (byte y = (byte) (dimensionY - 1); y >= 0; y--) {
+            byte x = (byte) (dimensionX - 1);
             byte dx = 0;
             winChain = 0;
             while (!checkNonRealCell((byte) (x + dx), y)) {
@@ -170,7 +169,7 @@ public class Model {
                 y--;
             }
         }
-    return false;
-}
+        return false;
+    }
 
 }
