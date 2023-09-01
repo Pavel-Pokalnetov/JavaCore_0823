@@ -104,6 +104,7 @@ public class Controller {
             x = (byte) rnd.nextInt(maxX);
             y = (byte) rnd.nextInt(maxY);
         }while (game.checkNonFreeCell(x,y));
+        view.output(String.format("Мой ход: %s %s",(char)(y+65),x+1));
         game.setCell(x,y,'0');
     }
 
