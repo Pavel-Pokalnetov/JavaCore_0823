@@ -67,6 +67,11 @@ public class Model {
         return result.toString();
     }
 
+    /** Устанавливает содержимое ячейки
+     * @param x - индекс строки
+     * @param y - индекс колонки
+     * @param sym - записываемый символ
+     */
     public void setCell(byte x, byte y, char sym) {
         gamefield[x][y] = sym;
     }
@@ -151,22 +156,63 @@ public class Model {
                 y--;
             }
         }
-        for (byte y = (byte) (dimensionY - 1); y >= 0; y--) {
+        for (byte y = (byte) (dimensionY - 2); y >= 0; y--) {
             byte x = (byte) (dimensionX - 1);
-            byte dx = 0;
+            byte dy = 0;
             winChain = 0;
-            while (!checkNonRealCell((byte) (x + dx), y)) {
-                if (gamefield[x + dx][y] == checkSym) {
+            while (!checkNonRealCell(x, (byte) (y+dy))) {
+                if (gamefield[x][y+dy] == checkSym) {
                     winChain++;
                 } else {
                     winChain = 0;
                 }
                 if (winChain == winningLength) return true;
-                dx--;
-                y--;
+                x--;
+                dy--;
             }
         }
         return false;
     }
 
+    /** Проверка позиции (x,y) на выигрыш true - если ход приводит к выигрышу.
+     * @param x строка
+     * @param y колонка
+     * @param checkSym - проверяемый символ
+     * @return true, если ход с символом chekSym в позицию x,y приводит к победе
+     */
+    private boolean checkNextWin(byte x,byte y ,char checkSym){
+        boolean result = false;
+        setCell(x,y,checkSym);
+        result = checkWin(checkSym);
+        setCell(x,y,' ');
+        return result;
+    }
+
+    /** Поиск выигрышного хода. Возвращает координаты первой выигрышной позиции или {-1,-1}, если выигрышной позиции нет.
+     * @param checkSym символ хода (0 или X)
+     * @return массив byte[], где 0 и 1 индексы - соответственно x и y - координаты ячейки, приводящие к победе,
+     */
+    public byte[] findWinPosition(char checkSym){
+        for (byte x = 0; x < dimensionX; x++) {
+            for (byte y = 0; y < dimensionY; y++) {
+                if (checkNonFreeCell(x, y)) continue;
+                if (checkNextWin(x,y,checkSym)){return new byte[]{x,y};}
+            }
+        }
+        return new byte[]{-1,-1};
+    }
+
+
+    /** Проверка на заполнение поля
+     * @return true, если поле заполнено
+     */
+    public boolean noFreeCells() {
+        for (int x = 0; x < dimensionX; x++) {
+            for (int y = 0; y < dimensionY; y++) {
+                if (gamefield[x][y]==' ') return false;
+            }
+
+        }
+        return true;
+    }
 }

@@ -12,6 +12,9 @@ public class Controller {
         this.runGame();
     }
 
+    /**
+     * Основной рабочий игровой цикл
+     */
     private void runGame() {
         view.output("ИГРА КРЕСТИКИ-НОЛИКИ");
         byte dimX;
@@ -38,7 +41,7 @@ public class Controller {
             game.reset(dimX, dimY, winLen);
             view.output("Первый ход делаю Я))");
             while (true) {
-                playCPU();
+                playCPUAI();
                 view.output(game.toString());
                 if (checkGameStatus() != 0) break;
                 playUSER();
@@ -50,6 +53,8 @@ public class Controller {
                         view.output("Я выиграл)))");
                 case (2) -> //выиграл игрок
                         view.output("Вы выиграли");
+                case (3) -> //ничья
+                        view.output("У нас ничья");
             }
             String answer = view.input("Повторим? (N - для выхода , Enter - продолжить):");
             if (answer.isEmpty()) continue;
@@ -57,6 +62,9 @@ public class Controller {
         }
     }
 
+    /**
+     * Ход игрока
+     */
     private void playUSER() {
         boolean userInput;
         byte index_Y=0;
@@ -86,15 +94,19 @@ public class Controller {
         game.setCell( index_X,index_Y, 'X');
     }
 
-    /** возвращает статус игры (проверка на выигрыш)
+    /** Возвращает статус игры (проверка на выигрыш или ничью)
      * @return
      */
     private int checkGameStatus() {
-        if (game.checkWin('0')) return 1;
-        if (game.checkWin('X')) return 2;
+        if (game.checkWin('0')) return 1; //выиграл CPU
+        if (game.checkWin('X')) return 2; //выиграл человек
+        if (game.noFreeCells()) return 3; //ничья
         return 0;
     }
 
+    /**
+     * Ход компьютера. Рандомный поиск свободной ячейки для хода.
+     */
     private void playCPU() {
         Random rnd = new Random();
         byte x,y;
@@ -107,6 +119,35 @@ public class Controller {
         view.output(String.format("Мой ход: %s %s",(char)(y+65),x+1));
         game.setCell(x,y,'0');
     }
+
+    /**
+     * Ход компьютера с поиском выигрышных или защитных позиций.
+     */
+    private void playCPUAI(){
+        //поиск позиции выигрыша для компьютера
+        byte[] testRun = game.findWinPosition('0');
+        if (testResult(testRun,'0')) return;
+
+        //поиск защитной позиции
+        //в которой следующим ходом может выиграть человек
+        testRun = game.findWinPosition('X');
+        if (testResult(testRun,'0')) return;
+        //если ничего не нашли, то ход в любую свободную
+        playCPU();
+    }
+
+    /**
+     * Вспомогательный метод для playCPUAI()
+     */
+    private boolean testResult(byte[] t, char c){
+        if (t[0]!=-1){
+            game.setCell(t[0],t[1],c );
+            view.output(String.format("Мой ход: %s %s",(char)(t[1]+65),t[0]+1));
+            return true;
+        }
+        return false;
+    }
+
 
 
     static class InputException extends Exception {
