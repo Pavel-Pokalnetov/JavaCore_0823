@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class EmployeeList implements Iterable<Employee>{
 
-    private List<Employee> employees; // Список сотрудников
+    private final List<Employee> employees; // Список сотрудников
 
     /**
      * Конструктор для создания объекта EmployeeList.
