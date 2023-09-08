@@ -44,14 +44,10 @@ public class ArrayTools {
      * @param arr двухмерный массив строк
      */
     public static void printArray(String[][] arr) {
-        // Перебираем строки массива
         for (String[] strings : arr) {
-            // Перебираем элементы внутри строки
             for (String string : strings) {
-                // Используем printf для форматированного вывода элемента с выравниванием по левому краю и заданной шириной колонки
                 System.out.printf("%-5s", string);
             }
-            // Переходим на новую строку после каждой строки массива
             System.out.println();
         }
     }
