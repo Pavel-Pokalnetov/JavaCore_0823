@@ -30,8 +30,9 @@ public class Controller {
                 winLen = Byte.parseByte(view.input("Укажите длину победной цепочки(3-26)"));
                 if (winLen < 3 || winLen > 26) throw new InputException();
                 break;
-            }catch (NumberFormatException e){
-                view.output("Неправильный ввод");;
+            } catch (NumberFormatException e) {
+                view.output("Неправильный ввод");
+                ;
             } catch (InputException e) {
                 view.output("Неверный ввод, повторите");
             }
@@ -39,7 +40,17 @@ public class Controller {
         boolean runStatus = true;
         while (runStatus) {
             game.reset(dimX, dimY, winLen);
-            view.output("Первый ход делаю Я))");
+            view.output(game.toString());
+            {
+
+                if (new Random().nextInt(1000) > 500) {
+                    view.output("Первый ход делаешь ты");
+                    playUSER();
+                    view.output(game.toString());
+                } else {
+                    System.out.println("Первый ход делаю я))");
+                }
+            }
             while (true) {
                 playCPUAI();
                 view.output(game.toString());
@@ -67,15 +78,15 @@ public class Controller {
      */
     private void playUSER() {
         boolean userInput;
-        byte index_Y=0;
-        byte index_X=0;
+        byte index_Y = 0;
+        byte index_X = 0;
         do {
             try {
                 String _Y = view.input("Ваш ход\nколонка: ").toUpperCase();
                 if (_Y.length() != 1) throw new InputException("Ошибка ввода буквы");
                 index_Y = (byte) (_Y.charAt(0) - 65);
                 try {
-                    index_X = (byte) (Byte.parseByte(view.input("строка: "))-1);
+                    index_X = (byte) (Byte.parseByte(view.input("строка: ")) - 1);
                 } catch (NumberFormatException e) {
                     throw new InputException("Ошибка ввода номера строки");
                 }
@@ -91,10 +102,12 @@ public class Controller {
                 return;
             }
         } while (userInput);
-        game.setCell( index_X,index_Y, 'X');
+        game.setCell(index_X, index_Y, 'X');
     }
 
-    /** Возвращает статус игры (проверка на выигрыш или ничью)
+    /**
+     * Возвращает статус игры (проверка на выигрыш или ничью)
+     *
      * @return
      */
     private int checkGameStatus() {
@@ -109,29 +122,29 @@ public class Controller {
      */
     private void playCPU() {
         Random rnd = new Random();
-        byte x,y;
+        byte x, y;
         byte maxX = game.getDimensionX();
         byte maxY = game.getDimensionY();
-        do{
+        do {
             x = (byte) rnd.nextInt(maxX);
             y = (byte) rnd.nextInt(maxY);
-        }while (game.checkNonFreeCell(x,y));
-        view.output(String.format("Мой ход: %s %s",(char)(y+65),x+1));
-        game.setCell(x,y,'0');
+        } while (game.checkNonFreeCell(x, y));
+        view.output(String.format("Мой ход: %s %s", (char) (y + 65), x + 1));
+        game.setCell(x, y, '0');
     }
 
     /**
      * Ход компьютера с поиском выигрышных или защитных позиций.
      */
-    private void playCPUAI(){
+    private void playCPUAI() {
         //поиск позиции выигрыша для компьютера
         byte[] testRun = game.findWinPosition('0');
-        if (testResult(testRun,'0')) return;
+        if (testResult(testRun, '0')) return;
 
         //поиск защитной позиции
         //в которой следующим ходом может выиграть человек
         testRun = game.findWinPosition('X');
-        if (testResult(testRun,'0')) return;
+        if (testResult(testRun, '0')) return;
         //если ничего не нашли, то ход в любую свободную
         playCPU();
     }
@@ -139,21 +152,21 @@ public class Controller {
     /**
      * Вспомогательный метод для playCPUAI()
      */
-    private boolean testResult(byte[] t, char c){
-        if (t[0]!=-1){
-            game.setCell(t[0],t[1],c );
-            view.output(String.format("Мой ход: %s %s",(char)(t[1]+65),t[0]+1));
+    private boolean testResult(byte[] t, char c) {
+        if (t[0] != -1) {
+            game.setCell(t[0], t[1], c);
+            view.output(String.format("Мой ход: %s %s", (char) (t[1] + 65), t[0] + 1));
             return true;
         }
         return false;
     }
 
 
-
     static class InputException extends Exception {
         public InputException(String message) {
             super(message);
         }
+
         public InputException() {
             super();
         }
