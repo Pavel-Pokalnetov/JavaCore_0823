@@ -7,21 +7,6 @@ import static lesson4.ArrayTools.ArrayConverter.convertAndSum;
 
 public class ArrayTools {
 
-    /** Метод для вывода двухмерного массива с подстраиванием ширины колонок
-     * @param arr   двухмерный массив строк
-     */
-    public static void printArray(String[][] arr) {
-        // Перебираем строки массива
-        for (String[] strings : arr) {
-            // Перебираем элементы внутри строки
-            for (String string : strings) {
-                // Используем printf для форматированного вывода элемента с выравниванием по левому краю и заданной шириной колонки
-                System.out.printf("%-5s", string);
-            }
-            // Переходим на новую строку после каждой строки массива
-            System.out.println();
-        }
-    }
 
     /**
      * Метод принимает двухмерный массив строк и его описание,
@@ -33,9 +18,10 @@ public class ArrayTools {
      * @throws MyArraySizeException если размер массива не равен 4x4
      */
     public static void processArray(String[][] array, String description) throws MyArraySizeException {
-        if (array == null)throw new MyArraySizeException("Что-то пошло не так. Получено значение null !");
+        if (array == null) throw new MyArraySizeException("Что-то пошло не так. \n" +
+                "Получено значение null вместо массива (4х4)!");
         System.out.println("Массив");
-        ArrayTools.printArray(array);
+        printArray(array);
         if (array.length != 4 || array[0].length != 4) {
             throw new MyArraySizeException(String.format("Массив %s должен быть размером 4х4!", description));
         } else {
@@ -47,8 +33,26 @@ public class ArrayTools {
                 System.out.println("Сумма: " + sum);
             } catch (MyArrayDataException e) {
                 // Если возникло исключение, выводим сообщение об ошибке
-                System.err.println("Неверные данные в массиве в строке " + e.getRow() + ", колонке " + e.getCol());
+                System.out.println("Неверные данные в массиве в строке " + e.getRow() + ", колонке " + e.getCol());
             }
+        }
+    }
+
+    /**
+     * Метод для вывода двухмерного массива с подстраиванием ширины колонок
+     *
+     * @param arr двухмерный массив строк
+     */
+    public static void printArray(String[][] arr) {
+        // Перебираем строки массива
+        for (String[] strings : arr) {
+            // Перебираем элементы внутри строки
+            for (String string : strings) {
+                // Используем printf для форматированного вывода элемента с выравниванием по левому краю и заданной шириной колонки
+                System.out.printf("%-5s", string);
+            }
+            // Переходим на новую строку после каждой строки массива
+            System.out.println();
         }
     }
 }

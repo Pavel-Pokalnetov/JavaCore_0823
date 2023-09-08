@@ -7,6 +7,7 @@ public class MyArraySizeException extends Exception {
 
     /**
      * Конструктор класса принимает строковое сообщение, которое содержит описание ошибки
+     *
      * @param message строковое сообщение, описывающее причину исключения
      */
     public MyArraySizeException(String message) {
