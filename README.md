@@ -1,23 +1,21 @@
 # JavaCore_0823
-## Задание к семинару 1
-Написано консольное приложение Калькулятор (https://github.com/Pavel-Pokalnetov/JavaCore_0823/tree/main/src/main/java/lesson1)  
-с точкой входа lesson1.main.Main
+## Задание к семинару 5
 
-В пакете work находятся следующие классы:  
-Класс Calculator, выполняющий 4 базовых арифметических действия ( + - / * )  
-Класс Controller, позволяющий работать в интерактвном режиме  
-Класс CInput для работы в консольным вводом  
-  
-Для демонстрации работы классов в контейнере Docker создан дополнительный класс lesson1.main.DemoCalcDocker 
-  
-Для автоматизации сборки документации, компиляции, упаковки в jar и создания образа Docker был написан файл сценарий compile.cmd  
-(https://github.com/Pavel-Pokalnetov/JavaCore_0823/blob/main/compile.cmd)  
-  
-Также написан файл dockerfile для создания образа на основе jre17  
-(https://github.com/Pavel-Pokalnetov/JavaCore_0823/blob/main/dockerfile)  
-  
-Результат работы сценария компиляции и сборки приведен в файле consolle-out.txt  
-(https://github.com/Pavel-Pokalnetov/JavaCore_0823/blob/main/consolle-out.txt)  
-  
-Скриншоты Docker Desktop после работы сценария (https://disk.yandex.ru/d/cKpLEyNWFQFIKw)
+Доделал класс для поиска файла содержащего строку(lesson5.FileSearch)  
+и класса для поиска таких файлов в директроии (lesson5.DirectorySearch)  
+демонтсрация в lesson5.AppFindFiles
+для теста был создан каталог TestFolder  
+внутри с помошью простого сткрипта на Python (run.py) созданы 50 файлов  
+типа File-##.txt содержащих случайные данные, но с вероятностью в 20%  
+в файлах в произвольном месте появляется строка GeekBrains
 
+результат работы программы на java (JAR) в файле console#1.txt
+
+по заданию
+1) резервное копирование файлов в указанной дирректории lesson5.FilesBackup  
+   демонстрация lesson5.AppBackup  
+   проверка выполняласть на паке D:\Learning\JavaCore_0823\TestFolder  
+   в результате имеем в корне проекта папку backup с 50-ю файлами *.txt и одним run.py  
+
+2) метод Tree доработан - изменения отмечены комментариями  
+   результат работы метода в файле console#2.txt  

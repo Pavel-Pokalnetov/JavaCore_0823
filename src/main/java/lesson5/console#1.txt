@@ -1,0 +1,46 @@
+D:\Learning\JavaCore_0823\TestFolder>del *.txt
+
+D:\Learning\JavaCore_0823\TestFolder>dir /d
+ Volume in drive D is Новый том
+ Volume Serial Number is E2F0-BA0E
+
+ Directory of D:\Learning\JavaCore_0823\TestFolder
+
+[.]      [..]     run.py
+               1 File(s)          1 026 bytes
+               2 Dir(s)  1 124 923 883 520 bytes free
+
+D:\Learning\JavaCore_0823\TestFolder>python run.py
+Генерация файлов завершена!
+
+D:\Learning\JavaCore_0823\TestFolder>dir /d
+ Volume in drive D is Новый том
+ Volume Serial Number is E2F0-BA0E
+
+ Directory of D:\Learning\JavaCore_0823\TestFolder
+
+[.]           File-04.txt   File-09.txt   File-14.txt   File-19.txt   File-24.txt   File-29.txt   File-34.txt   File-39.txt   File-44.txt   File-49.txt
+[..]          File-05.txt   File-10.txt   File-15.txt   File-20.txt   File-25.txt   File-30.txt   File-35.txt   File-40.txt   File-45.txt   File-50.txt
+File-01.txt   File-06.txt   File-11.txt   File-16.txt   File-21.txt   File-26.txt   File-31.txt   File-36.txt   File-41.txt   File-46.txt   run.py
+File-02.txt   File-07.txt   File-12.txt   File-17.txt   File-22.txt   File-27.txt   File-32.txt   File-37.txt   File-42.txt   File-47.txt
+File-03.txt   File-08.txt   File-13.txt   File-18.txt   File-23.txt   File-28.txt   File-33.txt   File-38.txt   File-43.txt   File-48.txt
+              51 File(s)        103 476 bytes
+               2 Dir(s)  1 124 923 678 720 bytes free
+
+D:\Learning\JavaCore_0823\TestFolder>findstr /m "GeekBrains" *
+File-01.txt
+File-06.txt
+File-14.txt
+File-18.txt
+File-40.txt
+run.py
+
+D:\Learning\JavaCore_0823\TestFolder>java -jar D:\Learning\JavaCore_0823\out\artifacts\JavaCore_0823_jar\JavaCore_0823.jar D:\Learning\JavaCore_0823\TestFolder GeekBrains
+D:\Learning\JavaCore_0823\TestFolder\File-01.txt
+D:\Learning\JavaCore_0823\TestFolder\File-06.txt
+D:\Learning\JavaCore_0823\TestFolder\File-14.txt
+D:\Learning\JavaCore_0823\TestFolder\File-18.txt
+D:\Learning\JavaCore_0823\TestFolder\File-40.txt
+D:\Learning\JavaCore_0823\TestFolder\run.py
+
+D:\Learning\JavaCore_0823\TestFolder>

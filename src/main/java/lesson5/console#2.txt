@@ -1,0 +1,306 @@
+C:\Users\RedX\.jdks\openjdk-20\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2\lib\idea_rt.jar=58239:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath D:\Learning\JavaCore_0823\target\classes lesson5.Tree
+└─.
+  ├─.git
+  │ ├─config
+  │ ├─description
+  │ ├─FETCH_HEAD
+  │ ├─fork-settings
+  │ ├─HEAD
+  │ ├─hooks
+  │ │ ├─applypatch-msg.sample
+  │ │ ├─commit-msg.sample
+  │ │ ├─fsmonitor-watchman.sample
+  │ │ ├─post-update.sample
+  │ │ ├─pre-applypatch.sample
+  │ │ ├─pre-commit.sample
+  │ │ ├─pre-merge-commit.sample
+  │ │ ├─pre-push.sample
+  │ │ ├─pre-rebase.sample
+  │ │ ├─pre-receive.sample
+  │ │ ├─prepare-commit-msg.sample
+  │ │ ├─push-to-checkout.sample
+  │ │ ├─sendemail-validate.sample
+  │ │ └─update.sample
+  │ ├─index
+  │ ├─info
+  │ │ └─exclude
+  │ ├─logs
+  │ │ ├─HEAD
+  │ │ └─refs
+  │ │   ├─heads
+  │ │   │ ├─lesson4
+  │ │   │ ├─lesson5-final
+  │ │   │ └─main
+  │ │   └─remotes
+  │ │     └─origin
+  │ │       └─HEAD
+  │ ├─objects
+  │ │ ├─01
+  │ │ │ └─d5f27e9c0ee4bdf8c20f867785ccb1d6e9f75b
+  │ │ ├─1e
+  │ │ │ └─afd4eb9f46a99ed4bb7695f29fe773bc10e10e
+  │ │ ├─23
+  │ │ │ └─64d3875c9e4e273a38f71fd806658f6275f020
+  │ │ ├─31
+  │ │ │ └─37c74349cd216161b094a6cb0534edb8e64014
+  │ │ ├─33
+  │ │ │ └─5d297eec6ea0e985bdc02d09747928721a19cb
+  │ │ ├─39
+  │ │ │ └─2f5afaf5539aea888c39e3565ae8bb8c911259
+  │ │ ├─78
+  │ │ │ └─ab6f3b39e279880e02a6b64e1c40447d58ddc2
+  │ │ ├─b0
+  │ │ │ └─0b86a9406b7a5e2fad7f2b2d17b87d24ed2dc6
+  │ │ ├─b9
+  │ │ │ └─09f96b97a876faff70f92d2855721450e05ed1
+  │ │ ├─c3
+  │ │ │ └─e37705221e0a186c3d81c9a66c31789ba5aee2
+  │ │ ├─ce
+  │ │ │ └─463809126b6c052f711e3f06a4c6ecb604cca7
+  │ │ ├─dc
+  │ │ │ └─94e8a8522a0f0f81240bd3bc89ba95dd0cafb0
+  │ │ ├─f1
+  │ │ │ └─e0c45d45b0a4a7a07a7cdba918864de67cf80e
+  │ │ ├─f5
+  │ │ │ └─0fad650fdeb71fccaae3bc1129e2baec8a94b0
+  │ │ ├─info
+  │ │ └─pack
+  │ │   ├─pack-88fca1f9a5aa9f7254824c0eeed0e6d864f29f60.idx
+  │ │   ├─pack-88fca1f9a5aa9f7254824c0eeed0e6d864f29f60.pack
+  │ │   └─pack-88fca1f9a5aa9f7254824c0eeed0e6d864f29f60.rev
+  │ ├─ORIG_HEAD
+  │ ├─packed-refs
+  │ └─refs
+  │   ├─heads
+  │   │ ├─lesson4
+  │   │ ├─lesson5-final
+  │   │ └─main
+  │   ├─remotes
+  │   │ └─origin
+  │   │   └─HEAD
+  │   └─tags
+  ├─.gitignore
+  ├─.idea
+  │ ├─.gitignore
+  │ ├─.name
+  │ ├─artifacts
+  │ │ └─JavaCore_0823_jar.xml
+  │ ├─compiler.xml
+  │ ├─encodings.xml
+  │ ├─jarRepositories.xml
+  │ ├─misc.xml
+  │ ├─uiDesigner.xml
+  │ ├─vcs.xml
+  │ └─workspace.xml
+  ├─backup
+  │ ├─File-01.txt
+  │ ├─File-02.txt
+  │ ├─File-03.txt
+  │ ├─File-04.txt
+  │ ├─File-05.txt
+  │ ├─File-06.txt
+  │ ├─File-07.txt
+  │ ├─File-08.txt
+  │ ├─File-09.txt
+  │ ├─File-10.txt
+  │ ├─File-11.txt
+  │ ├─File-12.txt
+  │ ├─File-13.txt
+  │ ├─File-14.txt
+  │ ├─File-15.txt
+  │ ├─File-16.txt
+  │ ├─File-17.txt
+  │ ├─File-18.txt
+  │ ├─File-19.txt
+  │ ├─File-20.txt
+  │ ├─File-21.txt
+  │ ├─File-22.txt
+  │ ├─File-23.txt
+  │ ├─File-24.txt
+  │ ├─File-25.txt
+  │ ├─File-26.txt
+  │ ├─File-27.txt
+  │ ├─File-28.txt
+  │ ├─File-29.txt
+  │ ├─File-30.txt
+  │ ├─File-31.txt
+  │ ├─File-32.txt
+  │ ├─File-33.txt
+  │ ├─File-34.txt
+  │ ├─File-35.txt
+  │ ├─File-36.txt
+  │ ├─File-37.txt
+  │ ├─File-38.txt
+  │ ├─File-39.txt
+  │ ├─File-40.txt
+  │ ├─File-41.txt
+  │ ├─File-42.txt
+  │ ├─File-43.txt
+  │ ├─File-44.txt
+  │ ├─File-45.txt
+  │ ├─File-46.txt
+  │ ├─File-47.txt
+  │ ├─File-48.txt
+  │ ├─File-49.txt
+  │ ├─File-50.txt
+  │ └─run.py
+  ├─compile.cmd
+  ├─consolle-out.txt
+  ├─dockerfile
+  ├─META-INF
+  │ └─MANIFEST.MF
+  ├─out
+  │ ├─artifacts
+  │ │ └─JavaCore_0823_jar
+  │ │   └─JavaCore_0823.jar
+  │ └─lesson1
+  │   ├─main
+  │   │ └─Main.class
+  │   └─work
+  │     ├─Calculator.class
+  │     ├─CInput.class
+  │     └─Controller.class
+  ├─pom.xml
+  ├─README.md
+  ├─src
+  │ └─main
+  │   └─java
+  │     ├─lesson1
+  │     │ ├─main
+  │     │ │ ├─DemoCalcDocker.java
+  │     │ │ └─Main.java
+  │     │ └─work
+  │     │   ├─Calculator.java
+  │     │   ├─CInput.java
+  │     │   └─Controller.java
+  │     ├─lesson2
+  │     │ ├─App.java
+  │     │ ├─Controller.java
+  │     │ ├─ConView.java
+  │     │ ├─Model.java
+  │     │ ├─View.java
+  │     │ └─вывод_консоли.txt
+  │     ├─lesson3
+  │     │ ├─comparators
+  │     │ │ ├─EmployeeAgeComparator.java
+  │     │ │ ├─EmployeeNameComparator.java
+  │     │ │ └─EmployeeSalaryComparator.java
+  │     │ ├─employees
+  │     │ │ ├─Employee.java
+  │     │ │ ├─EmployeeList.java
+  │     │ │ ├─Freelancer.java
+  │     │ │ └─Worker.java
+  │     │ └─Main.java
+  │     ├─lesson4
+  │     │ ├─App.java
+  │     │ ├─ArrayTools
+  │     │ │ ├─ArrayConverter.java
+  │     │ │ └─ArrayTools.java
+  │     │ └─Exceptions
+  │     │   ├─MyArrayDataException.java
+  │     │   └─MyArraySizeException.java
+  │     └─lesson5
+  │       ├─AppBackup.java
+  │       ├─AppFindFiles.java
+  │       ├─console.txt
+  │       ├─DirectorySearch.java
+  │       ├─FilesBackup.java
+  │       ├─FileSearch.java
+  │       └─Tree.java
+  ├─target
+  │ ├─classes
+  │ │ ├─lesson1
+  │ │ │ ├─main
+  │ │ │ │ ├─DemoCalcDocker.class
+  │ │ │ │ └─Main.class
+  │ │ │ └─work
+  │ │ │   ├─Calculator.class
+  │ │ │   ├─CInput.class
+  │ │ │   └─Controller.class
+  │ │ ├─lesson2
+  │ │ │ ├─App.class
+  │ │ │ ├─Controller$InputException.class
+  │ │ │ ├─Controller.class
+  │ │ │ ├─ConView.class
+  │ │ │ ├─Model.class
+  │ │ │ └─View.class
+  │ │ ├─lesson3
+  │ │ │ ├─comparators
+  │ │ │ │ ├─EmployeeAgeComparator.class
+  │ │ │ │ ├─EmployeeNameComparator.class
+  │ │ │ │ └─EmployeeSalaryComparator.class
+  │ │ │ ├─employees
+  │ │ │ │ ├─Employee.class
+  │ │ │ │ ├─EmployeeList.class
+  │ │ │ │ ├─Freelancer.class
+  │ │ │ │ └─Worker.class
+  │ │ │ └─Main.class
+  │ │ ├─lesson4
+  │ │ │ ├─App.class
+  │ │ │ ├─ArrayTools
+  │ │ │ │ ├─ArrayConverter.class
+  │ │ │ │ └─ArrayTools.class
+  │ │ │ └─Exceptions
+  │ │ │   ├─MyArrayDataException.class
+  │ │ │   └─MyArraySizeException.class
+  │ │ └─lesson5
+  │ │   ├─AppBackup.class
+  │ │   ├─AppFindFiles.class
+  │ │   ├─DirectorySearch.class
+  │ │   ├─FilesBackup.class
+  │ │   ├─FileSearch.class
+  │ │   └─Tree.class
+  │ └─generated-sources
+  │   └─annotations
+  └─TestFolder
+    ├─File-01.txt
+    ├─File-02.txt
+    ├─File-03.txt
+    ├─File-04.txt
+    ├─File-05.txt
+    ├─File-06.txt
+    ├─File-07.txt
+    ├─File-08.txt
+    ├─File-09.txt
+    ├─File-10.txt
+    ├─File-11.txt
+    ├─File-12.txt
+    ├─File-13.txt
+    ├─File-14.txt
+    ├─File-15.txt
+    ├─File-16.txt
+    ├─File-17.txt
+    ├─File-18.txt
+    ├─File-19.txt
+    ├─File-20.txt
+    ├─File-21.txt
+    ├─File-22.txt
+    ├─File-23.txt
+    ├─File-24.txt
+    ├─File-25.txt
+    ├─File-26.txt
+    ├─File-27.txt
+    ├─File-28.txt
+    ├─File-29.txt
+    ├─File-30.txt
+    ├─File-31.txt
+    ├─File-32.txt
+    ├─File-33.txt
+    ├─File-34.txt
+    ├─File-35.txt
+    ├─File-36.txt
+    ├─File-37.txt
+    ├─File-38.txt
+    ├─File-39.txt
+    ├─File-40.txt
+    ├─File-41.txt
+    ├─File-42.txt
+    ├─File-43.txt
+    ├─File-44.txt
+    ├─File-45.txt
+    ├─File-46.txt
+    ├─File-47.txt
+    ├─File-48.txt
+    ├─File-49.txt
+    ├─File-50.txt
+    └─run.py
