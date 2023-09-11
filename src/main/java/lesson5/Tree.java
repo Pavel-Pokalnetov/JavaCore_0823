@@ -12,27 +12,36 @@ public class Tree {
 
     /**
      * TODO: Доработать метод print, необходимо распечатывать директории и файлы
+     *
      * @param file
      * @param indent
      * @param isLast
      */
-    public static void print(File file, String indent, boolean isLast){
+    public static void print(File file, String indent, boolean isLast) {
         System.out.print(indent);
-        if (isLast){
+        if (isLast) {
             System.out.print("└─");
             indent += "  ";
-        }
-        else{
+        } else {
             System.out.print("├─");
             indent += "│ ";
         }
-        System.out.println(file.getName());
+
+
+        System.out.print(file.getName());
+
+        // а это обозначения, чтобы как-то различать файлы и каталоги в дереве
+        if (file.isDirectory())
+            System.out.println("  (d)");
+        else
+            System.out.println("  (f)");
+
 
         File[] files = file.listFiles();
-        if (files == null)
+        if (files == null) //выходим если файлы кончились
             return;
 
-        //  убираем этот блок кода
+        //  убираем этот блок кода т.е. не считаем каталоги
 //        int subDirTotal = 0;
 //        for (int i = 0; i < files.length; i++){
 //            if (files[i].isDirectory())
@@ -49,6 +58,7 @@ public class Tree {
 //        }
 
         // добавляем этот
+        // выводим файлы, сколько их есть
         for (File f : files) {
             print(f, indent, f == files[files.length - 1]);
         }

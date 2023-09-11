@@ -4,11 +4,17 @@ import static lesson5.DirectorySearch.searchInDirectory;
 
 public class AppFindFiles {
     public static void main(String[] args) {
-//        if (args.length!=2) System.out.println("Укажите каталог поиска и строку поиска в параметрах");
-//       String rootdir = args[0];
-//       String findstr = args[1];
-        String rootdir = "D:\\Learning\\JavaCore_0823\\TestFolder";
-        String findstr = "GeekBrains";
-        searchInDirectory(rootdir,findstr);
+
+        // это блок для ввода имени каталога и строки поиска в параметрах командной строки
+        // да здесь нужно делать проверки на корректность
+        // но цель была проверить работу из CMD запуском jar с параметрами
+
+        // if (args.length!=2) System.out.println("Укажите каталог поиска и строку поиска в параметрах");
+        // String rootDir = args[0];
+        // String findStr = args[1];
+
+        String rootDir = "D:\\Learning\\JavaCore_0823\\TestFolder";
+        String findStr = "GeekBrains";
+        searchInDirectory(rootDir,findStr);
     }
 }

@@ -16,21 +16,27 @@ public class DirectorySearch {
      * @param searchString строка для поиска
      */
     public static void searchInDirectory(String directoryPath, String searchString) {
+        // Создаем объект класса File, представляющий указанную директорию
         File directory = new File(directoryPath);
 
+        // Проверяем, является ли указанный путь директорией
         if (directory.isDirectory()) {
+            // Получаем список файлов в данной директории
             File[] files = directory.listFiles();
 
+            // Проверяем, что список файлов не пустой
             if (files != null) {
+                // Итерируемся по списку файлов
                 for (File file : files) {
-                    if (file.isFile()) { // Проверка, является ли файлом
-                        if (searchInFile(directoryPath+"\\"+file.getName(), searchString)) {
-                            System.out.println(directoryPath+"\\"+file.getName()); // Печать имени файла
+                    // Проверяем, является ли текущий элемент файлом
+                    if (file.isFile()) {
+                        // Вызываем метод поиска в файле и, если он вернул true, выводим имя файла
+                        if (searchInFile(directoryPath + "\\" + file.getName(), searchString)) {
+                            System.out.println(directoryPath + "\\" + file.getName());
                         }
                     }
                 }
             }
         }
     }
-
 }
