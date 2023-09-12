@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: lesson2.App
+Main-Class: lesson5.AppFindFiles
 
